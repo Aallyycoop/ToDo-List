@@ -37,7 +37,7 @@ const AddTodoForm = () => {
           className="mb-2 mr-sm-2"
           autoFocus
         />
-        <Button type="submit" variant="group-vertical" className="btn-success mb-2 btn-add">Add</Button>
+        <Button type="submit" variant="group-vertical" className="btn mb-2 btn-add">Add</Button>
         <Form.Label htmlFor="taskBody" hidden>Name</Form.Label>
       </Form.Group>
     </Form>

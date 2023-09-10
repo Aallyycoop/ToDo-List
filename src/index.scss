@@ -33,9 +33,22 @@ h4 {
   border-bottom-left-radius: 10px;
 }
 
+.form-control:focus {
+  border-color: #EAD1EE;
+  box-shadow: 2px 2px 3px 0 #D9ABE1;
+}
+
 .btn-add {
-  border-top-right-radius: 10px!important;;
-  border-bottom-right-radius: 10px!important;;
+  border-top-right-radius: 10px!important;
+  border-bottom-right-radius: 10px!important;
+  background-color: #df8bdf;
+  color: white;
+  border-color: #dd60dd  !important;
+}
+
+.btn-add:hover {
+  background-color: #e073e0;
+  color: white;
 }
 
 .input-control {
@@ -86,6 +99,11 @@ word-break: break-all
   border-radius: 10px;
 }
 
+.list-group-item-success {
+  background-color: #ead1ee99;
+  color: white;
+}
+
 .list-group-item-success div .task-body::before {
   background-image: url('./assets/check.png');
 }
@@ -107,4 +125,31 @@ word-break: break-all
   background: #edeef0!important;
   text-decoration: none;
   color: black!important;
+}
+
+.nav-item {
+  margin: 0 1px;
+}
+
+.nav-tabs  {
+  border: none !important;
+}
+
+.nav-link {
+  border-width: 1.5px !important;
+  border-radius: 10px !important;
+  border-color: #dd60dd !important;
+  color: black !important;
+}
+
+.nav-link.active {
+  color: white !important;
+  border-color: #dd60dd  !important;
+  background-color: #df8bdf !important;
+}
+
+.nav-link:hover {
+  color: white !important;
+  background-color: #f2d1f2 !important;
+  border-color: #d182d1 !important;
 }
