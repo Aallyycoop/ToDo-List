@@ -6,7 +6,7 @@ const TotalTodos = ({ todos, status }) => (
     {' '}
     {status}
     {' '}
-    Items:
+    tasks:
     {' '}
     {todos.length}
   </h4>

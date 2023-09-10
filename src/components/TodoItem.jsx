@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { Button } from 'react-bootstrap';
 import { toggleComplete, deleteTodo } from '../redux/todoSlice';
 
 const TodoItem = ({ id, taskBody, completed }) => {
@@ -14,18 +15,21 @@ const TodoItem = ({ id, taskBody, completed }) => {
   };
 
   return (
-    <li id={id} className={`list-group-item ${completed && 'list-group-item-success'}`}>
+    <li id={id} className={`list-group-item p-0 ${completed && 'list-group-item-success'}`}>
       <div className="d-flex justify-content-between">
-        <span className="d-flex align-items-center">
-          <input
-            type="checkbox"
-            className="input-control"
-            checked={completed}
-            onChange={handleCompleteClick}
-          />
-          {taskBody}
-        </span>
-        <button onClick={handleDeleteClick} type="submit" className="btn btn-danger">Delete</button>
+        <Button onClick={handleCompleteClick} type="button" className="task-body border-0 m-0" variant="group-vertical">
+          <span>{taskBody}</span>
+        </Button>
+        {/* <span className="d-flex align-items-center"> */}
+        {/* <input
+          type="checkbox"
+          className="input-control"
+          checked={completed}
+          onChange={handleCompleteClick}
+        /> */}
+        {/* {taskBody} */}
+        {/* </span> */}
+        <Button onClick={handleDeleteClick} type="submit" className="border-0 btn-link">x</Button>
       </div>
     </li>
   );

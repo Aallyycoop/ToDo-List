@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 
 // export const getTodosAsync = createAsyncThunk(
 //   'todos/getTodosAsync',
@@ -32,7 +32,13 @@ import { createSlice } from '@reduxjs/toolkit';
 //   },
 // );
 
-const initialState = []; // { taskBody, id, completed(true/false) }
+// const saveData = (state) = (
+//   localStorage.setItem('data', JSON.stringify(state));
+// );
+
+const data = localStorage.getItem('data') !== null ? JSON.parse(localStorage.getItem('data')) : [];
+
+const initialState = data; // { taskBody, id, completed(true/false) }
 
 const todoSlice = createSlice({
   name: 'todos',
@@ -45,16 +51,25 @@ const todoSlice = createSlice({
         completed: false,
       };
       state.push(newTodo);
+      localStorage.setItem('data', JSON.stringify(current(state)));
     },
     toggleComplete: (state, action) => {
       const index = state.findIndex(
         (todo) => todo.id === action.payload.id,
       );
       state[index].completed = action.payload.completed;
+      console.log('state[index]', state[index]);
+      localStorage.setItem('data', JSON.stringify(current(state)));
     },
-    deleteTodo: (state, action) => (
-      state.filter((todo) => todo.id !== action.payload.id)
-    ),
+    deleteTodo: (state, action) => {
+      state = state.filter((todo) => todo.id !== action.payload.id);
+      localStorage.setItem('data', JSON.stringify(state));
+      return state;
+    },
+    // showTasks: (state, action) => {
+    //   state = [...action.payload];
+    //   console.log('state', state);
+    // },
   },
   // extraReducers: (builder) => {
   //   builder
@@ -67,5 +82,7 @@ const todoSlice = createSlice({
   // },
 });
 
-export const { addTodo, toggleComplete, deleteTodo } = todoSlice.actions;
+export const {
+  addTodo, toggleComplete, deleteTodo,
+} = todoSlice.actions;
 export default todoSlice.reducer;

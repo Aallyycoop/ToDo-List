@@ -28,7 +28,7 @@ const AddTodoForm = () => {
 
   return (
     <Form onSubmit={formik.handleSubmit} className="form-inline mt-3 mb-3">
-      <Form.Group>
+      <Form.Group className="input-group">
         <Form.Control
           onChange={formik.handleChange}
           value={formik.values.taskBody}
@@ -37,7 +37,7 @@ const AddTodoForm = () => {
           className="mb-2 mr-sm-2"
           autoFocus
         />
-        <Button type="submit" className="btn btn-primary mb-2">Добавить</Button>
+        <Button type="submit" variant="group-vertical" className="btn-success mb-2 btn-add">Add</Button>
         <Form.Label htmlFor="taskBody" hidden>Name</Form.Label>
       </Form.Group>
     </Form>

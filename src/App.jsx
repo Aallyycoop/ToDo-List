@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
 
 import AddTodoForm from './components/AddTodoForm';
 // import TodoList from './components/TodoList';
@@ -7,13 +6,13 @@ import AddTodoForm from './components/AddTodoForm';
 import TodosStateTabs from './components/TodosStateTabs';
 
 const App = () => (
-  <Container className="bg-white p-4 mt-5">
-    <h1>My Todo List</h1>
+  <div className="d-flex flex-column h-100 container todo-container">
+    <h1>To-Do List</h1>
     <AddTodoForm />
     <TodosStateTabs />
     {/* <TodoList /> */}
     {/* <TotalCompleteItems /> */}
-  </Container>
+  </div>
 );
 
 export default App;
