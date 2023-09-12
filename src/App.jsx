@@ -6,8 +6,10 @@ import AddTodoForm from './components/AddTodoForm';
 import TodosStateTabs from './components/TodosStateTabs';
 
 const App = () => (
-  <div className="d-flex flex-column h-100 container todo-container">
-    <h1>To-Do List</h1>
+  <div className="container todo-container">
+    <h1 className="to-do-header">
+      To-Do List
+    </h1>
     <AddTodoForm />
     <TodosStateTabs />
     {/* <TodoList /> */}

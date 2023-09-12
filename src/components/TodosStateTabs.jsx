@@ -33,7 +33,7 @@ const TodosStateTabs = () => {
         defaultActiveKey="allTodos"
         transition={false}
         id="fill-tab-example"
-        className="mb-3"
+        className="mb-3 tabs-head"
         justify
       >
         <Tab eventKey="allTodos" title="All tasks">

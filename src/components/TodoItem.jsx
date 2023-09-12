@@ -29,7 +29,7 @@ const TodoItem = ({ id, taskBody, completed }) => {
         /> */}
         {/* {taskBody} */}
         {/* </span> */}
-        <Button onClick={handleDeleteClick} type="submit" className="border-0 btn-link">x</Button>
+        <Button onClick={handleDeleteClick} type="submit" className="border-0 btn-link btn-remove-task">x</Button>
       </div>
     </li>
   );
