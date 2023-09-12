@@ -5,6 +5,7 @@
   --pink-middle: #e6a9f0;
   --pink-light: #f3e0f5;
   --pink-extra-light: #f3e0f5a7;
+  --red-middle: #fa7272;
   --gray-dark: #2c3539;
   --gray-middle: #455157;
   --gray-light: #516168;
@@ -63,6 +64,10 @@ h4 {
   border-radius: 10px;
 }
 
+.tasks-container {
+  margin-top: 37px;
+}
+
 .form-control {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -71,6 +76,22 @@ h4 {
 .form-control:focus, .form-control:focus + .btn-add {
   border-color: var(--pink-light);
   box-shadow: 2px 2px 3px 0 var(--pink-middle);
+}
+
+.form-control.is-invalid {
+  border-color: var(--red-middle) !important;
+}
+
+.form-control.is-invalid:focus, .form-control.is-invalid:focus + .btn-add {
+  border-color: var(--red-middle) !important;
+  box-shadow: 2px 2px 3px 0 var(--red-middle);
+}
+
+.invalid-tooltip {
+  max-width: fit-content;
+  background-color: transparent;
+  color: red;
+  margin-top: 0;
 }
 
 .btn-add {

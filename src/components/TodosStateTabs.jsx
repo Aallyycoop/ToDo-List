@@ -32,7 +32,7 @@ const TodosStateTabs = () => {
   const sortedTodos = [...uncompletedTodos, ...completedTodos];
 
   return (
-    <div>
+    <div className="tasks-container">
       <Tabs
         defaultActiveKey="allTodos"
         transition={false}
