@@ -205,6 +205,6 @@ h4 {
 @media screen and (max-width: 600px) {
   .tabs-head > li > button {
     height: 100%;
-    word-break: break-word;
+    word-break: keep-all;
   }
 }
