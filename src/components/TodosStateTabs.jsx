@@ -22,10 +22,14 @@ const TodosStateTabs = () => {
 
   const todos = useSelector((state) => state.todos);
   console.log('todos', todos);
-  const completedTodos = useSelector((state) => state.todos
-    .filter((todo) => todo.completed === true));
-  const uncompletedTodos = useSelector((state) => state.todos
-    .filter((todo) => todo.completed === false));
+
+  const completedTodos = todos.filter(((todo) => todo.completed === true))
+    .sort((a, b) => a.changeTime - b.changeTime);
+
+  const uncompletedTodos = todos.filter(((todo) => todo.completed === false))
+    .sort((a, b) => a.changeTime - b.changeTime);
+
+  const sortedTodos = [...uncompletedTodos, ...completedTodos];
 
   return (
     <div>
@@ -38,9 +42,9 @@ const TodosStateTabs = () => {
       >
         <Tab eventKey="allTodos" title="All tasks">
           <div className="amount-container all">
-            <TotalTodos todos={todos} status="" />
+            <TotalTodos todos={sortedTodos} status="" />
           </div>
-          <TodoList todos={todos} />
+          <TodoList todos={sortedTodos} />
         </Tab>
         <Tab eventKey="completedTodos" title="Completed tasks">
           <div className="amount-container completed">

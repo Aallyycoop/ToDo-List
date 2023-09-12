@@ -38,7 +38,7 @@ import { createSlice, current } from '@reduxjs/toolkit';
 
 const data = localStorage.getItem('data') !== null ? JSON.parse(localStorage.getItem('data')) : [];
 
-const initialState = data; // { taskBody, id, completed(true/false) }
+const initialState = data; // { taskBody, id, completed(true/false), changeTime }
 
 const todoSlice = createSlice({
   name: 'todos',
@@ -49,6 +49,7 @@ const todoSlice = createSlice({
         id: Date.now(),
         taskBody: action.payload.taskBody,
         completed: false,
+        changeTime: null,
       };
       state.push(newTodo);
       localStorage.setItem('data', JSON.stringify(current(state)));
@@ -58,7 +59,9 @@ const todoSlice = createSlice({
         (todo) => todo.id === action.payload.id,
       );
       state[index].completed = action.payload.completed;
-      console.log('state[index]', state[index]);
+
+      state[index].changeTime = action.payload.changeTime;
+
       localStorage.setItem('data', JSON.stringify(current(state)));
     },
     deleteTodo: (state, action) => {
@@ -66,10 +69,6 @@ const todoSlice = createSlice({
       localStorage.setItem('data', JSON.stringify(state));
       return state;
     },
-    // showTasks: (state, action) => {
-    //   state = [...action.payload];
-    //   console.log('state', state);
-    // },
   },
   // extraReducers: (builder) => {
   //   builder

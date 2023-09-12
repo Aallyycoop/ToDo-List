@@ -3,11 +3,19 @@ import { useDispatch } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import { toggleComplete, deleteTodo } from '../redux/todoSlice';
 
-const TodoItem = ({ id, taskBody, completed }) => {
+const TodoItem = ({
+  id,
+  taskBody,
+  completed,
+}) => {
   const dispatch = useDispatch();
 
   const handleCompleteClick = () => {
-    dispatch(toggleComplete({ id, completed: !completed }));
+    dispatch(toggleComplete({
+      id,
+      completed: !completed,
+      changeTime: Date.now(),
+    }));
   };
 
   const handleDeleteClick = () => {
@@ -20,15 +28,6 @@ const TodoItem = ({ id, taskBody, completed }) => {
         <Button onClick={handleCompleteClick} type="button" className="task-body border-0 m-0" variant="group-vertical">
           <span>{taskBody}</span>
         </Button>
-        {/* <span className="d-flex align-items-center"> */}
-        {/* <input
-          type="checkbox"
-          className="input-control"
-          checked={completed}
-          onChange={handleCompleteClick}
-        /> */}
-        {/* {taskBody} */}
-        {/* </span> */}
         <Button onClick={handleDeleteClick} type="submit" className="border-0 btn-link btn-remove-task">x</Button>
       </div>
     </li>
