@@ -1,12 +1,8 @@
 import React from 'react';
-// import React, { useEffect } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-// import { useDispatch } from 'react-redux';
 import TodoList from './TodoList';
 import TotalTodos from './TotalTodos';
-// import TabComponent from './TabComponent';
-// import { showTasks } from '../redux/todoSlice';
 
 const filterTodosByChangeTime = (todos, status) => (
   todos.filter(((todo) => todo.completed === status))
@@ -14,31 +10,9 @@ const filterTodosByChangeTime = (todos, status) => (
 );
 
 const TodosStateTabs = () => {
-  // const dispatch = useDispatch();
-
-  // const todos = JSON.parse(localStorage.getItem('data'));
-  // console.log('data', todos);
-
-  // useEffect(() => {
-  //   dispatch(showTasks(todos));
-  // }, [dispatch, todos]);
-
-  // const completedTodos = todos.filter((todo) => todo.completed === true);
-  // const uncompletedTodos = todos.filter((todo) => todo.completed === false);
-
   const todos = useSelector((state) => state.todos);
-  console.log('todos', todos);
-
-  // const completedTodos = todos.filter(((todo) => todo.completed === true))
-  //   .sort((a, b) => a.changeTime - b.changeTime);
-
-  // const uncompletedTodos = todos.filter(((todo) => todo.completed === false))
-  //   .sort((a, b) => a.changeTime - b.changeTime);
-
   const completedTodos = filterTodosByChangeTime(todos, true);
-
   const uncompletedTodos = filterTodosByChangeTime(todos, false);
-
   const sortedTodos = [...uncompletedTodos, ...completedTodos];
 
   return (
@@ -50,11 +24,6 @@ const TodosStateTabs = () => {
         className="mb-3 tabs-head"
         justify
       >
-        {/* <TabComponent todos={sortedTodos} title="All tasks" eventKey="allTodos" status="all" />
-        <TabComponent todos={completedTodos}
-        title="Completed tasks" eventKey="completedTodos" status="completed" />
-        <TabComponent todos={uncompletedTodos}
-        title="Uncompleted tasks" eventKey="uncompletedTodos" status="uncompleted" /> */}
         <Tab eventKey="allTodos" title="All tasks">
           <div className="amount-container all">
             <TotalTodos todos={sortedTodos} status="" />

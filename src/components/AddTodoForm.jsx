@@ -6,8 +6,6 @@ import {
 import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import { addTodo } from '../redux/todoSlice';
-// import { addTodoAsync } from '../redux/todoSlice';
-// import store from '../redux/store';
 
 const schema = yup.object().shape({
   taskBody: yup
