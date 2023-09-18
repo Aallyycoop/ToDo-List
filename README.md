@@ -1,3 +1,5 @@
+[![eslint-check](https://github.com/Aallyycoop/ToDo-List/actions/workflows/eslint-check.yml/badge.svg)](https://github.com/Aallyycoop/ToDo-List/actions/workflows/eslint-check.yml)
+
 # [ToDo-test-task](https://to-do-list-pi-lyart.vercel.app/)
 
 A test assignment from the company DAO TECH
