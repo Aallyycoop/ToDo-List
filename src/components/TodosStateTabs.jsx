@@ -9,9 +9,14 @@ const filterTodosByChangeTime = (todos, status) => (
     .sort((a, b) => a.changeTime - b.changeTime)
 );
 
+const filterCompletedTodosByChangeTime = (todos, status) => (
+  todos.filter(((todo) => todo.completed === status))
+    .sort((a, b) => b.changeTime - a.changeTime)
+);
+
 const TodosStateTabs = () => {
   const todos = useSelector((state) => state.todos);
-  const completedTodos = filterTodosByChangeTime(todos, true);
+  const completedTodos = filterCompletedTodosByChangeTime(todos, true);
   const uncompletedTodos = filterTodosByChangeTime(todos, false);
   const sortedTodos = [...uncompletedTodos, ...completedTodos];
 
